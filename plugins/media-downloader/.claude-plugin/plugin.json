@@ -1,0 +1,5 @@
+{
+  "name": "media-downloader",
+  "version": "0.1.0",
+  "description": "用 yt-dlp + ffmpeg 下载 YouTube/B站等视频、提取音频、剪辑片段(缺工具会引导安装)"
+}

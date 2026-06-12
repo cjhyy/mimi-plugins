@@ -9,6 +9,13 @@
       "version": "0.1.0",
       "category": "authoring",
       "source": "./plugins/skill-creator"
+    },
+    {
+      "name": "media-downloader",
+      "description": "用 yt-dlp + ffmpeg 下载 YouTube/B站等视频、提取音频 mp3、只下字幕、播放列表、剪辑片段;含实战排错表(403/cookie/SABR/同步盘坑),工具缺失引导安装。",
+      "version": "0.1.0",
+      "category": "media",
+      "source": "./plugins/media-downloader"
     }
   ]
 }
