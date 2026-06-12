@@ -1,0 +1,14 @@
+{
+  "name": "mimi-plugins",
+  "description": "codeshell 官方插件市场 — 自带核心 skill 与插件",
+  "owner": { "name": "cjhyy" },
+  "plugins": [
+    {
+      "name": "skill-creator",
+      "description": "交互式引导创建和改进 skill(SKILL.md):访谈意图 → 选位置 → 按模板起草 → 校验 → 触发测试。格式与 Claude Code / Codex / codeshell 通用。",
+      "version": "0.1.0",
+      "category": "authoring",
+      "source": "./plugins/skill-creator"
+    }
+  ]
+}
