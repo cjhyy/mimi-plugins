@@ -1,6 +1,6 @@
 # 排错表:stderr 特征 → 诊断 → 动作
 
-先跑 `yt-dlp -v "<URL>"` 拿完整日志,再对表。**总则:升级 yt-dlp 永远是第一排错步骤**——站点反爬月月变,旧版本是最常见死因(`brew upgrade yt-dlp` / `pipx upgrade yt-dlp` / `pip install -U yt-dlp`)。
+先跑 `yt-dlp -v "<URL>"` 拿完整日志,再对表。**总则:确认 yt-dlp 是最新版**——这本该在第 0 步下载前就查过(版本号是日期,>30 天就该升);若当时跳过了,现在补升级再重试(`brew upgrade yt-dlp` / `pipx upgrade yt-dlp` / `pip install -U yt-dlp` / `yt-dlp -U`)。站点反爬月月变,旧版本是最常见死因。
 
 | stderr 特征 | 诊断 | 动作(按序尝试) |
 |---|---|---|

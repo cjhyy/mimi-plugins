@@ -7,14 +7,23 @@ description: 当用户想下载视频或音频时使用——下载 YouTube/Bili
 
 yt-dlp 支持上千个站点。本 skill 是「自检 → 路由到配方 → 排错」三段式;**报错时不要盲试参数**,先读 `references/troubleshooting.md` 对表。参数细节速查在 `references/flags.md`。
 
-## 第 0 步:环境自检(每次先做)
+## 第 0 步:环境自检(每次下载前先做,别等报错)
+
+查"装没装"**和"够不够新"**——yt-dlp 版本号是日期 `YYYY.MM.DD`,站点反爬月月变,**版本太旧是下载失败的头号原因**,所以下载前就该拦,不要等 403/SABR 报错才想起升级。
 
 ```bash
-command -v yt-dlp && yt-dlp --version; command -v ffmpeg && ffmpeg -version | head -1
+command -v yt-dlp >/dev/null && yt-dlp --version; command -v ffmpeg >/dev/null && ffmpeg -version | head -1
 ```
 
-缺了按平台装(征得用户同意):macOS `brew install yt-dlp ffmpeg`;Windows `winget install yt-dlp.yt-dlp Gyan.FFmpeg`;Linux `sudo apt install ffmpeg` + `pipx install yt-dlp`(apt 的 yt-dlp 太旧)。兜底:`python3 -m pip install -U yt-dlp --break-system-packages`。
-**优先包管理器,别下 standalone 单文件二进制**——PyInstaller 打包的首次运行要解压内嵌 Python,冷启动可达 ~24s,容易被误判挂死。
+判断版本是否过旧(把版本号当日期比):**超过 ~30 天就先升级再下载**。一条命令直接判龄(无 python 时改用 `date` 手算):
+
+```bash
+yt-dlp --version | python3 -c "import sys,datetime; v=sys.stdin.read().strip()[:10].replace('.','-'); d=(datetime.date.today()-datetime.date.fromisoformat(v)).days; print(f'yt-dlp {v} 距今 {d} 天'); print('⚠️ 偏旧，先升级' if d>30 else '✓ 够新')"
+```
+
+- **缺了 → 安装**(征得用户同意):macOS `brew install yt-dlp ffmpeg`;Windows `winget install yt-dlp.yt-dlp Gyan.FFmpeg`;Linux `sudo apt install ffmpeg` + `pipx install yt-dlp`(apt 的 yt-dlp 太旧)。兜底:`python3 -m pip install -U yt-dlp --break-system-packages`。
+- **太旧 → 升级**(同样先问):`brew upgrade yt-dlp` / `pipx upgrade yt-dlp` / `pip install -U yt-dlp` / `yt-dlp -U`(standalone 二进制自更新)。升级后再继续下载。
+- **优先包管理器,别下 standalone 单文件二进制**——PyInstaller 打包的首次运行要解压内嵌 Python,冷启动可达 ~24s,容易被误判挂死。
 
 ## 任务路由
 
