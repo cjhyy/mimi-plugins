@@ -59,12 +59,17 @@ description: <什么时候用这个 skill —— 写"触发时机",不是写"功
 
 ## 第 4 步:校验
 
-落盘后逐项检查:
+落盘后**先跑校验脚本**(确定性检查,别只靠肉眼):
 
-- [ ] frontmatter 能解析:只有 `name` 和 `description` 两个必填键,YAML 无语法错误(冒号后内容含特殊字符时加引号)
-- [ ] `name` 与目录名一致、全小写 kebab-case
-- [ ] `description` 包含触发场景词,长度一两句话(太长会被截断,太短不触发)
-- [ ] 正文步骤可执行:挑一步问自己"Claude 看到这句知道做什么吗?"
+```bash
+python3 scripts/quick_validate.py <skill-dir 或 SKILL.md 路径>
+```
+
+脚本检查:frontmatter 能否解析、`name` 是否 kebab-case 且与目录名一致、`description` 长度与触发措辞、正文是否为空/过长。**退出码 0 = 通过(可带 WARN),1 = 有 ERROR 必须先修**。把 ERROR 全部修掉再进第 5 步;WARN 逐条判断(多数该听,例如 description 太短或像功能简介)。
+
+脚本管不了的、仍需肉眼看的一项:
+
+- [ ] 正文步骤**可执行**:挑一步问自己"Claude 看到这句知道做什么吗?"(语义,脚本判不了)
 
 ## 第 5 步:触发测试
 
