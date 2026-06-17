@@ -53,7 +53,7 @@ yt-dlp --version | python3 -c "import sys,datetime; v=sys.stdin.read().strip()[:
 
 ## 交互契约
 
-- 长下载(>1 分钟的视频)放**后台执行**,期间可汇报进度;完成后 `ls -lh` 报文件路径和大小。
+- 长下载(>1 分钟的视频)用 `Bash(run_in_background=true)` 放**后台执行**,然后**结束本轮** —— 系统会在下载完成时自动唤醒你,那时再 `ls -lh` 报文件路径和大小。**绝不要** `Sleep` + `BashOutput` 反复轮询等它跑完(那是浪费 token 的自旋);也不要在下载途中一遍遍汇报进度。只在用户主动问进度时才 `BashOutput` 看一眼。
 - 播放列表必先列单确认再下,可能非常大。
 - 403/登录类问题需要用户配合(cookie),按 troubleshooting 表引导,别替用户决定读哪个浏览器。
 - 下载前确认用户对内容有合法使用权;DRM 内容拒绝(yt-dlp 也不支持)。
