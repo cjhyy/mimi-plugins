@@ -1,0 +1,5 @@
+{
+  "name": "model-fact-finder",
+  "version": "0.1.0",
+  "description": "Pin down the integration facts of an AI model/provider — modalities, tunable params and how each is passed, context window, auth — by reading official API docs (never from memory)."
+}

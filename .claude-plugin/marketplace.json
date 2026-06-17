@@ -16,6 +16,13 @@
       "version": "0.1.1",
       "category": "media",
       "source": "./plugins/media-downloader"
+    },
+    {
+      "name": "model-fact-finder",
+      "description": "Pin down an AI model/provider's integration facts — modalities, tunable params and how each is passed, context window, auth — by reading official API docs (never from memory). Use before integrating a new model or to verify a model's params/context.",
+      "version": "0.1.0",
+      "category": "authoring",
+      "source": "./plugins/model-fact-finder"
     }
   ]
 }
