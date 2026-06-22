@@ -19,8 +19,8 @@
     },
     {
       "name": "model-fact-finder",
-      "description": "Pin down an AI model/provider's integration facts — modalities, tunable params and how each is passed, context window, auth — by reading official API docs (never from memory). Use before integrating a new model or to verify a model's params/context.",
-      "version": "0.1.0",
+      "description": "Add/integrate an AI model into codeshell, or pin down a model/provider's integration facts — modalities, tunable params and how each is passed, context window, auth — by reading official API docs (never from memory). Then guides landing it: write the catalog, relay a written summary for the user to verify, point to the config files.",
+      "version": "0.1.1",
       "category": "authoring",
       "source": "./plugins/model-fact-finder"
     }
