@@ -1,0 +1,17 @@
+{
+  "name": "mimi-video",
+  "description": "AI 短剧/视频生成流水线：小说/剧情 → 可拍剧本(编剧·先定时长·起承转合4-5段·一集1-2事件讲透) → 导演讲戏 → 服化道 → 分镜(剪辑设计·剧情点拆单镜头Pxx-Sxx·每镜4-10s·8段SOP) → 逐段确认生成。多角色协作(编剧/导演/服化道/分镜师)，全程项目级一致性约束(角色花名册 + 画幅锁定)，台词走语音不显字幕，不绑定具体出图/视频模型。",
+  "version": "0.6.1",
+  "author": {
+    "name": "maki"
+  },
+  "keywords": [
+    "video",
+    "ai-drama",
+    "storyboard",
+    "seedance",
+    "pipeline",
+    "director",
+    "screenwriter"
+  ]
+}
